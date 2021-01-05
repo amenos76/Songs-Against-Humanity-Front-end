@@ -69,8 +69,6 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* flex-direction: column;
-  align-items: flex-start; */
 }
 
 header img {
@@ -109,6 +107,31 @@ body {
   border: 3px solid #191414;
   color: white;
   background: #191414;
+}
+
+#selected-card {
+  /* flex-flow: column;
+  align-items: flex-start; */
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  
+}
+
+.button {
+  background-color: #191414;
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 18px;
+  box-shadow: 1px 3px 5px #888888;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: black;
 }
 
 .light {
