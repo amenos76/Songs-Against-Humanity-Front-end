@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="app.css">
-        <script src="index.js"></script>
+        <script src="cards.js" defer></script>
         <title>Songs Against Humanity</title>
     </head>
     <body>
@@ -22,45 +22,45 @@
                 <p class='text'>What do old people smell like?</p>
                 </div>
             
-                <div class='light card hidden'>
-                <p class='text'>selected song title card</p>
+                <div class='light card hidden' id='selected-card'>
+                <p class='text' id='selected-card-text'>selected song title card</p>
                 </div>
                 
                 <div class='cardstack'>
-                <div class='light stackcard'>
+                <div class='light stackcard' id='card-1'>
                     <ul class='text menu'>
                     <li>song title 1</li>
                     </ul>
                 </div>
-                <div class='light stackcard'>
+                <div class='light stackcard' id='card-2'>
                     <ul class='text menu'>
                     <li>song title 2</li>
                     </ul>
                 </div>
-                <div class='light stackcard'>
+                <div class='light stackcard' id='card-3'>
                     <ul class='text menu'>
                     <li>song title 3</li>
                     </ul>
                 </div>
-                <div class='light stackcard'>
+                <div class='light stackcard' id='card-4'>
                     <ul class='text menu'>
                     <li>song title 4</li>
                     </ul>
                 </div>
-                <div class='light stackcard'>
+                <div class='light stackcard' id='card-5'>
                     <ul class='text menu'>
                     <li>song title 5</li>
                     </ul>
                 </div>
                 </div>
-
                 <div class='song-card'>
                     <img src='https://f4.bcbits.com/img/a2585064593_2.jpg'>
                     <ul class='song-info text menu'>
-                    <li id='song-title'>playing song title</li>
-                    <li id='song-artist'>playing song artist</li>
+                    <li id='song-title'>Out of This Place</li>
+                    <li id='song-artist'>CITRA</li>
                     </ul>
                 </div>
+
             </div>
     </body>
 </html>
