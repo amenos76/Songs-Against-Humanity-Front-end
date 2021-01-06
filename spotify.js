@@ -10,11 +10,14 @@ const $card5Title = document.querySelector('#song-title-5')
 // const $card5 = document.querySelector('#card-5')
 
 
+const myID = config.MY_ID
+const secretkey = config.SECRET_KEY
+
 
 const APIController = (function() {
     
-    const clientId = 'b8a313e785634624a8c63df43d06071a';
-    const clientSecret = '749e086d70f54a31a24271b117e16a32';
+    const clientId = myID;
+    const clientSecret = secretkey;
 
     // private methods
     const _getToken = async () => {
