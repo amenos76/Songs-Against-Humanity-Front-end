@@ -9,7 +9,7 @@ const $allCards = document.querySelector('.card')
 
 $blackCardButton.addEventListener('click', fetchBlackCards)
 
-function fetchBlackCards(event){
+function fetchBlackCards(){
     fetch(blackCardsURL)
         .then(response => response.json())
         .then(blackCards => randomBlackCard(blackCards))

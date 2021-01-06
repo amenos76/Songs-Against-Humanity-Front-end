@@ -4,10 +4,11 @@ const $card3Title = document.querySelector('#song-title-3')
 const $card4Title = document.querySelector('#song-title-4')
 const $card5Title = document.querySelector('#song-title-5')
 // const $cardContainer = document.querySelector('.card-container')
-// const $card2 = document.querySelector('#card-2')
-// const $card3 = document.querySelector('#card-3')
-// const $card4 = document.querySelector('#card-4')
-// const $card5 = document.querySelector('#card-5')
+const $card1 = document.querySelector('#card-1')
+const $card2 = document.querySelector('#card-2')
+const $card3 = document.querySelector('#card-3')
+const $card4 = document.querySelector('#card-4')
+const $card5 = document.querySelector('#card-5')
 
 
 const myID = config.MY_ID
@@ -248,6 +249,11 @@ const APPController = (function(UICtrl, APICtrl) {
         const tracks = await APICtrl.getTracks(token, tracksEndPoint);
         console.log(tracks[0].track.name)
 
+        const whiteCardsExist = document.getElementsByClassName("stackcard")
+        if (whiteCardsExist.length > 0) {
+            console.log(whiteCardsExist.length)
+            removeCards()
+        }
         songCardTitles(tracks)
         // create a track list item
         tracks.forEach(el => UICtrl.createTrack(el.track.href, el.track.name))
@@ -267,7 +273,6 @@ const APPController = (function(UICtrl, APICtrl) {
         const track = await APICtrl.getTrack(token, trackEndpoint);
         // load the track details
         UICtrl.createTrackDetail(track.album.images[1].url, track.name, track.artists[0].name);
-        console.log(track.name)
     });    
 
     return {
@@ -283,16 +288,14 @@ let counter = 1
 
 
 function songCardTitles(songsArray){
-    
     songsArray.slice(0, 5).forEach(createWhiteCards)
-    let counter = 1
-    // $card1Title.innerText = 
+    counter = 1
 };
 
 
 
 function createWhiteCards(songObject){
-    console.log(songObject.track.name)
+    // console.log(songObject.track.name)
     
     const $newWhiteCard = document.createElement('div')
     $newWhiteCard.classList.add('light')
@@ -313,6 +316,23 @@ function createWhiteCards(songObject){
     $newWhiteCard.append($ul)
 
     $cardstack.appendChild($newWhiteCard)
+}
+
+function removeCards(){
+    const $card1 = document.getElementById('card-1')
+    const $card2 = document.getElementById('card-2')
+    const $card3 = document.getElementById('card-3')
+    const $card4 = document.getElementById('card-4')
+    const $card5 = document.getElementById('card-5')
+
+    const $selectedCard = document.querySelector('#selected-card-display')
+    $selectedCard.classList.toggle('hidden')
+
+    $card1.parentNode.removeChild($card1)
+    $card2.parentNode.removeChild($card2)
+    $card3.parentNode.removeChild($card3)
+    $card4.parentNode.removeChild($card4)
+    $card5.parentNode.removeChild($card5)
 }
 
 // will need to call a method to load the genres on page load
