@@ -211,22 +211,22 @@ body {
 
 .stackcard:nth-child(2) {
   margin: 10px;
-  margin-top: 90px;
+  margin-top: 100px;
 }
 
 .stackcard:nth-child(3) {
   margin: 10px;
-  margin-top: 160px;
+  margin-top: 170px;
 }
 
 .stackcard:nth-child(4) {
   margin: 10px;
-  margin-top: 230px;
+  margin-top: 240px;
 }
 
 .stackcard:nth-child(5) {
   margin: 10px;
-  margin-top: 300px;
+  margin-top: 310px;
 }
 
 .song-card {
