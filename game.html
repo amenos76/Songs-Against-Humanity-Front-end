@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="app.css">
         <script src="cards.js" defer></script>
+        <script src="spotify.js" defer></script>
         <title>Songs Against Humanity</title>
     </head>
     <body>
@@ -18,6 +19,43 @@
             
         </header>
             <div class='cardContainer'>
+                <div class='dark card spotify-search'>
+                    <div id='black-card-text-container'>
+                        <p class='text' id='black-card-text'>Genre/Playlist Search</p>
+
+                        <form action="" id="genre-playlist-form">
+                            <input type="hidden" id='hidden_token'>
+                            <div class="col-sm-6 form-group row mt-4 px-0">
+                                <label for="Genre" class="form-label col-sm-2">Genre:</label>
+                                <select name="" id="select_genre" class="form-control form-control-sm col-sm-10">
+                                    <option>Select...</option>                    
+                                </select>
+                            </div>
+                            <div class="col-sm-6 form-group row px-0">
+                                <label for="Genre" class="form-label col-sm-2">Playlists:</label>
+                                <select name="" id="select_playlist" class="form-control form-control-sm col-sm-10">
+                                    <option>Select...</option>                    
+                                </select>
+                            </div>                  
+                            <div class="col-sm-6 row form-group px-0">
+                                <button type="submit" id="btn_submit" class="btn btn-success col-sm-12">Search</button>
+                            </div>          
+                        </form>
+
+                    </div>
+                    <button class='button' id='black-card-button'>Search</button>
+                </div>
+
+                <div class="row dark card">
+                    <div class="col-sm-6 px-0">
+                        <div class="list-group song-list">
+                            
+                        </div>                                             
+                    </div>
+                    <div class="offset-md-1 col-sm-4" id="song-detail">                
+                    </div>
+                </div>   
+
                 <div class='dark card'>
                     <div id='black-card-text-container'>
                         <p class='text' id='black-card-text'>Click the button below to get started!</p>
@@ -32,31 +70,31 @@
                 </div>
                 
                 <div class='cardstack'>
-                <div class='light stackcard' id='card-1'>
+                <!-- <div class='light stackcard' id='card-1'>
                     <ul class='text menu'>
-                        <li>song title 1</li>
+                        <li id="song-title-1">song title 1</li>
                     </ul>
                 </div>
                 <div class='light stackcard' id='card-2'>
                     <ul class='text menu'>
-                        <li>song title 2</li>
+                        <li id="song-title-2">song title 2</li>
                     </ul>
                 </div>
                 <div class='light stackcard' id='card-3'>
                     <ul class='text menu'>
-                        <li>song title 3</li>
+                        <li id="song-title-3">song title 3</li>
                     </ul>
                 </div>
                 <div class='light stackcard' id='card-4'>
                     <ul class='text menu'>
-                        <li>song title 4</li>
+                        <li id="song-title-4">song title 4</li>
                     </ul>
                 </div>
                 <div class='light stackcard' id='card-5'>
                     <ul class='text menu'>
-                        <li>song title 5</li>
+                        <li id="song-title-5">song title 5</li>
                     </ul>
-                </div>
+                </div> -->
                 </div>
                 <div class='song-card'>
                     <div id="album-art-container">

@@ -5,17 +5,7 @@ const $cardstack = document.querySelector('.cardstack')
 const $selectedCard = document.querySelector('#selected-card-display')
 const $blackCardButton = document.querySelector('#black-card-button')
 const $blackCardText = document.querySelector('#black-card-text')
-// const $selectedCardText = document.querySelector('#selected-card-text')
 const $allCards = document.querySelector('.card')
-const $card1 = document.querySelector('#card-1')
-const $card2 = document.querySelector('#card-2')
-const $card3 = document.querySelector('#card-3')
-const $card4 = document.querySelector('#card-4')
-const $card5 = document.querySelector('#card-5')
-
-// fetch(blackCardsURL)
-//     .then(response => response.json())
-//     .then(blackCards => console.log(blackCards[0].text))
 
 $blackCardButton.addEventListener('click', fetchBlackCards)
 
@@ -36,6 +26,11 @@ function showCard(event){
     
     const $clickedCard = event.target.parentElement.parentElement
     const songName = event.target.innerText
+    const $card1 = document.querySelector('#card-1')
+    const $card2 = document.querySelector('#card-2')
+    const $card3 = document.querySelector('#card-3')
+    const $card4 = document.querySelector('#card-4')
+    const $card5 = document.querySelector('#card-5')
 
     if ($clickedCard === $card1) {
         hiddenCardCheck()
@@ -98,6 +93,13 @@ function hiddenCardCheck(){
 }
 
 function removeHiddenClass(clickedCard){
+
+    const $card1 = document.querySelector('#card-1')
+    const $card2 = document.querySelector('#card-2')
+    const $card3 = document.querySelector('#card-3')
+    const $card4 = document.querySelector('#card-4')
+    const $card5 = document.querySelector('#card-5')
+
     if(clickedCard === $card1) {
         if ($card2.classList.contains('hidden')) {
             $card2.classList.toggle('hidden')
