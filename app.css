@@ -51,9 +51,12 @@ table {
 
 @import 'https://fonts.googleapis.com/css?family=Droid+Sans+Mono';
 
-.header-container {
+
+
+.header-title-container {
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 header {
@@ -66,6 +69,7 @@ header {
   padding-top: .5rem;
   background-color: #191414;
   height: 5rem;
+  
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -73,12 +77,12 @@ header {
 
 header img {
   height: 100%;
-  
-  
 }
 
 body {
   background-color: #1aa64b;
+  width: 100%;
+  height: fit-content;
 }
 
 .cardContainer {
@@ -115,7 +119,6 @@ body {
   display: flex;
   flex-direction: column;
   align-content: space-between;
-  
 }
 
 .button {
@@ -126,12 +129,14 @@ body {
   font-size: 18px;
   box-shadow: 1px 3px 5px #888888;
   border-radius: 5px;
-  margin: auto;
+  margin-top: 250px;
+  margin-left: 22px;
 }
 
 .button:hover {
   background-color: #fff;
   color: black;
+  cursor: pointer;
 }
 
 .light {
@@ -139,10 +144,6 @@ body {
   border: 3px solid #191414;
   color: #191414;
   background: white;
-}
-
-.hidden {
-  display: none;
 }
 
 .text {
@@ -171,6 +172,7 @@ body {
 
 .menu li:hover {
   color: #d9d9d9;
+  cursor: pointer;
 }
 
 .cardstack {
@@ -224,16 +226,36 @@ body {
   float: right;
   margin: 10px;
   list-style: none;
+  
+}
+
+#album-art-container {
+  padding-top: 10px;
 }
 
 .song-card img {
   width: 80%;
   display: block;
   margin: auto;
-  padding-top: 1rem;
+  padding-top: 0rem;
   border-radius: .20in;
 }
 
 .song-info {
   font-size: 18px;
+  padding: 10px 2px 2px 10px ;
+}
+
+.song-info #song-artist {
+  font-size: 24px;
+  padding-top: 5px;
+}
+
+#play-pause-button {
+  padding-top: 15px;
+  width: 30%;
+}
+
+.hidden {
+  display: none;
 }
