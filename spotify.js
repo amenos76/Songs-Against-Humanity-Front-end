@@ -172,7 +172,6 @@ const UIController = (function() {
                         <li id='song-title'>${title}</li>
                         <li id='song-artist'>${artist}</li>
                     </ul>
-                    <div id="spotify-player-container">
                         <iframe id='spotify-player'
                             src="https://open.spotify.com/embed/track/${trackURI}" 
                             width="300" 
@@ -181,7 +180,6 @@ const UIController = (function() {
                             allowtransparency="true" 
                             allow="encrypted-media">
                         </iframe>
-                    </div>
                 </div>
             `
             
