@@ -157,7 +157,7 @@ const UIController = (function() {
         },
 
         // need method to create the song detail
-        createTrackDetail(img, title, artist) {
+        createTrackDetail(img, title, artist, trackURI) {
 
             const detailDiv = document.querySelector('.song-card-container');
             detailDiv.innerHTML = '';
@@ -171,9 +171,15 @@ const UIController = (function() {
                     <ul class='song-info text menu'>
                         <li id='song-title'>${title}</li>
                         <li id='song-artist'>${artist}</li>
-                        <img id="play-pause-button"
-                        src="https://www.pngkey.com/png/full/179-1792540_dior-white-transparent-play-button.png">
                     </ul>
+                    <iframe id='spotify-player'
+                        src="https://open.spotify.com/embed/track/${trackURI}" 
+                        width="300" 
+                        height="80" 
+                        frameborder="0" 
+                        allowtransparency="true" 
+                        allow="encrypted-media">
+                    </iframe>
                 </div>
             `
             
@@ -285,7 +291,9 @@ const APPController = (function(UICtrl, APICtrl) {
             //get the track object
             const track = await APICtrl.getTrack(token, trackEndpoint);
             // load the track details
-            UICtrl.createTrackDetail(track.album.images[1].url, track.name, track.artists[0].name);
+            const trackURI = ((track.id).split("/")).toString()
+            // console.log(trackURI)
+            UICtrl.createTrackDetail(track.album.images[1].url, track.name, track.artists[0].name, trackURI);
         }
         
     })
@@ -320,16 +328,14 @@ function createWhiteCards(songObject){
     $ul.classList.add('menu')
 
     const $li = document.createElement('li')
-    // $li.id = `song-title-${counter}`
     $li.id = songObject.track.href
     $li.classList.add('song-list')
     $li.textContent = songObject.track.name
 
-    // $card1Title.innerText = songObject.track.name
     counter++
     $ul.append($li)
     $newWhiteCard.append($ul)
-
+   
     $cardstack.appendChild($newWhiteCard)
 }
 
