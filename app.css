@@ -80,8 +80,13 @@ header {
   justify-content: space-between;
 }
 
-header img {
+.spotify-logo {
   height: 100%;
+  transition: transform .2s;
+}
+
+.spotify-logo:hover {
+  transform: scale(1.2);
 }
 
 body {
@@ -155,6 +160,7 @@ body {
 #btn_submit {
   margin-top: 205px;
   margin-left: 45px;
+  margin-bottom: 10px;
 }
 
 .button:hover {
@@ -281,9 +287,11 @@ body {
   padding-top: 5px;
 }
 
-#play-pause-button {
+#spotify-player {
+  width: 100%;
   padding-top: 15px;
-  width: 30%;
+  padding-bottom: 5px;
+  border-radius: 10px;
 }
 
 .hidden {
