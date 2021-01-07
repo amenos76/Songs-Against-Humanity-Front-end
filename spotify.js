@@ -44,7 +44,7 @@ const APIController = (function() {
         });
 
         const data = await result.json();
-        console.log(data.categories.items);
+        // console.log(data.categories.items);
         return data.categories.items;
     }
 
@@ -115,7 +115,8 @@ const UIController = (function() {
         buttonSubmit: '#btn_submit',
         divSongDetail: '#song-detail',
         hfToken: '#hidden_token',
-        divSonglist: '.song-list'
+        divSonglist: '.song-list',
+        divCardstack: '.cardstack'
     }
 
     //public methods
@@ -127,8 +128,10 @@ const UIController = (function() {
                 genre: document.querySelector(DOMElements.selectGenre),
                 playlist: document.querySelector(DOMElements.selectPlaylist),
                 tracks: document.querySelector(DOMElements.divSonglist),
+                // cardTracks: document.querySelector(DOMElements.divSonglist),
                 submit: document.querySelector(DOMElements.buttonSubmit),
-                songDetail: document.querySelector(DOMElements.divSongDetail)
+                songDetail: document.querySelector(DOMElements.divSongDetail),
+                cardstack: document.querySelector(DOMElements.divCardstack)
             }
         },
 
@@ -147,28 +150,34 @@ const UIController = (function() {
         createTrack(id, name) {
             const html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${id}">${name}</a>`;
             document.querySelector(DOMElements.divSonglist).insertAdjacentHTML('beforeend', html);
+
+            // const html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${id}">${name}</a>`;
+            // document.querySelector(DOMElements.divCardstack).insertAdjacentHTML('beforeend', html);
+            
         },
 
         // need method to create the song detail
         createTrackDetail(img, title, artist) {
 
-            const detailDiv = document.querySelector(DOMElements.divSongDetail);
-            // any time user clicks a new song, we need to clear out the song detail div
+            const detailDiv = document.querySelector('.song-card-container');
             detailDiv.innerHTML = '';
 
             const html = 
             `
-            <div class="row col-sm-12 px-0">
-                <img src="${img}" alt="">        
-            </div>
-            <div class="row col-sm-12 px-0">
-                <label for="Genre" class="form-label col-sm-12" id="song-info-title">Title: ${title}</label>
-            </div>
-            <div class="row col-sm-12 px-0">
-                <label for="artist" class="form-label col-sm-12" id="song-info-artist">By: ${artist}</label>
-            </div> 
-            `;
-
+            <div class='song-card'>
+                    <div id="album-art-container">
+                        <img src='${img}'>
+                    </div>
+                    <ul class='song-info text menu'>
+                        <li id='song-title'>${title}</li>
+                        <li id='song-artist'>${artist}</li>
+                        <img id="play-pause-button"
+                        src="https://www.pngkey.com/png/full/179-1792540_dior-white-transparent-play-button.png">
+                    </ul>
+                </div>
+            `
+            
+            
             detailDiv.insertAdjacentHTML('beforeend', html)
         },
 
@@ -247,13 +256,13 @@ const APPController = (function(UICtrl, APICtrl) {
         const tracksEndPoint = playlistSelect.options[playlistSelect.selectedIndex].value;
         // get the list of tracks
         const tracks = await APICtrl.getTracks(token, tracksEndPoint);
-        console.log(tracks[0].track.name)
 
         const whiteCardsExist = document.getElementsByClassName("stackcard")
+
         if (whiteCardsExist.length > 0) {
-            console.log(whiteCardsExist.length)
             removeCards()
         }
+        
         songCardTitles(tracks)
         // create a track list item
         tracks.forEach(el => UICtrl.createTrack(el.track.href, el.track.name))
@@ -261,19 +270,25 @@ const APPController = (function(UICtrl, APICtrl) {
     });
 
     // create song selection click event listener
-    DOMInputs.tracks.addEventListener('click', async (e) => {
-        // prevent page reset
-        e.preventDefault();
-        UICtrl.resetTrackDetail();
-        // get the token
-        const token = UICtrl.getStoredToken().token;
-        // get the track endpoint
-        const trackEndpoint = e.target.id;
-        //get the track object
-        const track = await APICtrl.getTrack(token, trackEndpoint);
-        // load the track details
-        UICtrl.createTrackDetail(track.album.images[1].url, track.name, track.artists[0].name);
-    });    
+
+    document.addEventListener('click', async (e) => {
+        
+        const whiteCards = e.target
+        if(whiteCards.classList.contains('song-list')){
+            e.preventDefault();
+            UICtrl.resetTrackDetail();
+            // get the token
+            const token = UICtrl.getStoredToken().token;
+            // get the track endpoint
+            const trackEndpoint = e.target.id;
+            // console.log(trackEndpoint)
+            //get the track object
+            const track = await APICtrl.getTrack(token, trackEndpoint);
+            // load the track details
+            UICtrl.createTrackDetail(track.album.images[1].url, track.name, track.artists[0].name);
+        }
+        
+    })
 
     return {
         init() {
@@ -295,8 +310,6 @@ function songCardTitles(songsArray){
 
 
 function createWhiteCards(songObject){
-    // console.log(songObject.track.name)
-    
     const $newWhiteCard = document.createElement('div')
     $newWhiteCard.classList.add('light')
     $newWhiteCard.classList.add('stackcard')
@@ -307,7 +320,9 @@ function createWhiteCards(songObject){
     $ul.classList.add('menu')
 
     const $li = document.createElement('li')
-    $li.id = `song-title-${counter}`
+    // $li.id = `song-title-${counter}`
+    $li.id = songObject.track.href
+    $li.classList.add('song-list')
     $li.textContent = songObject.track.name
 
     // $card1Title.innerText = songObject.track.name
