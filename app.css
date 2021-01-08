@@ -327,7 +327,7 @@ select {
 
 .song-info {
   font-size: 18px;
-  padding: 10px 2px 2px 10px ;
+  padding: 0px 0px 0px -2px ;
 }
 
 .song-info #song-artist {
