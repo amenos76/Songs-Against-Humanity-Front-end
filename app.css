@@ -310,7 +310,12 @@ select {
   float: right;
   margin: 10px;
   list-style: none;
+  transition: transform .4s;
   
+}
+
+.song-card:hover {
+  transform: scale(1.05)
 }
 
 #album-art-container {
