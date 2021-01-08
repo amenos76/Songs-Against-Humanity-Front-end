@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
         <link rel="stylesheet" href="app.css">
         <script type='text/javascript' src='config.js' defer></script>
         <script src="cards.js" defer></script>
@@ -20,7 +24,7 @@
         </header>
         
             <div class='cardContainer'>
-                <div class='dark card spotify-search'>
+                <div class='dark card spotify-search animate__animated animate__fadeInDown'>
                     <div id='black-card-text-container'>
                         <p class='text' id=''>Let's Get Started!</p>
 
@@ -56,14 +60,17 @@
                     </div>
                 </div>   
 
-                <div class='dark card'>
+                <div class='dark card animate__animated animate__fadeInUp'>
                     <div id='black-card-text-container'>
                         <p class='text' id='black-card-text'>Click the button below!</p>
                     </div>
                     <button class='button' id='black-card-button'>Random Black Card</button>
                 </div>
                 
-                <div class='light card hidden' id='selected-card-display'>
+                <div 
+                class='light card hidden animate__animated animate__fadeIn' 
+                id='selected-card-display'
+                >
                     <div id='selected-card-text-container'>
                         <p class='text' id='selected-card-text'>Select a card</p>
                     </div>

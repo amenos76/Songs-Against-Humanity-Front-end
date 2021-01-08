@@ -164,7 +164,7 @@ const UIController = (function() {
 
             const html = 
             `
-            <div class='song-card'>
+            <div class='song-card animate__animated animate__fadeIn'>
                     <div id="album-art-container">
                         <img src='${img}'>
                     </div>
@@ -321,6 +321,9 @@ function createWhiteCards(songObject){
     const $newWhiteCard = document.createElement('div')
     $newWhiteCard.classList.add('light')
     $newWhiteCard.classList.add('stackcard')
+    $newWhiteCard.classList.add('animate__animated')
+    $newWhiteCard.classList.add('animate__rollIn')
+
     $newWhiteCard.id = `card-${counter}`
 
     const $ul = document.createElement('ul')

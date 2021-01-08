@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Welcome to Songs Against Humanity!</title>
-        <link rel="stylesheet" link="app.css">
+        <style>
+            body {
+            background: url("../Media/green-background.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        </style>
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
         
-        <h1>Please Login</h1>
+        <div class="dark card form animate__animated animate__fadeIn">
+            <div class="form-container">
+                <h2>Welcome to Songs Against Humanity!</h2>
+                <form id="login-signup">
+                    <input id="username-field" type="text" placeholder="enter username..." name="username">
+                    <input id="password-field" type="text" placeholder="enter password..." name="password">
+                    <input type="submit" class="button" value="login">
+                </form>
+                <a href="game.html" id="link-to-game">Click here to play!</a>
+            </div>
 
-        <a href="game.html">Click here to play!</a>
+            <!-- <a href="game.html">Click here to play!</a> -->
+        </div>
+
     </body>
 </html>
