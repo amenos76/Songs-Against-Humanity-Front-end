@@ -173,6 +173,7 @@ const UIController = (function() {
                         <li id='song-artist'>${artist}</li>
                     </ul>
                         <iframe id='spotify-player'
+                            class='animate__animated animate__fadeIn'
                             src="https://open.spotify.com/embed/track/${trackURI}" 
                             width="300" 
                             height="80" 
@@ -246,7 +247,6 @@ const APPController = (function(UICtrl, APICtrl) {
         // create a playlist list item for every playlist returned
         playlist.forEach(p => UICtrl.createPlaylist(p.name, p.tracks.href));
     });
-     
 
     // create submit button click event listener
     DOMInputs.submit.addEventListener('click', async (e) => {
@@ -338,7 +338,7 @@ function createWhiteCards(songObject){
     counter++
     $ul.append($li)
     $newWhiteCard.append($ul)
-   
+
     $cardstack.appendChild($newWhiteCard)
 }
 
@@ -359,6 +359,6 @@ function removeCards(){
     $card5.parentNode.removeChild($card5)
 }
 
-// will need to call a method to load the genres on page load
+// load the genres on page load
 APPController.init();
 

@@ -79,6 +79,7 @@ function selectedCardInfo(songName){
 
     const $textContainer = document.createElement('div')
     $textContainer.id = 'selected-card-text-container'
+    
 
     const $pTag = document.createElement('p')
     $pTag.innerText = songName
