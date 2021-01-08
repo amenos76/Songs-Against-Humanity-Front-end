@@ -85,9 +85,10 @@ html, body {
 
 .dark {
     /* Color information */
-    border: 3px solid #191414;
+    border: 3px solid #ffffff;
     color: white;
-    background: #191414;
+    background: rgba(25, 20, 20, .8);
+    opacity: .5;
 }
 
 .form-container {
