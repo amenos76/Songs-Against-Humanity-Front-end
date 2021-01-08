@@ -1,6 +1,14 @@
 const baseURL = "http://localhost:3000"
 const blackCardsURL =  `${baseURL}/black_cards`
 
+// const randomBlackCardDiv = document.querySelector('#black-card-text-container')
+
+setTimeout(function() { 
+    document.querySelector('#dark-card-2').classList.remove('animate__animated')
+    document.querySelector('#dark-card-1').classList.remove('animate__animated')
+}, 1000)
+
+
 const $cardstack = document.querySelector('.cardstack')
 const $selectedCard = document.querySelector('#selected-card-display')
 const $blackCardButton = document.querySelector('#black-card-button')
