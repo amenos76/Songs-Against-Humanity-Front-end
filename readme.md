@@ -3,6 +3,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Dmo](#demo)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
@@ -13,6 +14,10 @@
 
 ## General info
 Songs Against Humanity is a work-in-progress game and music discovery app. It combines the gameplay of Cards Against Humanity with song titles from Spotify as well as playback control.  You can pick a genre which will give you popular playlists within that genre to choose from. Once a playlist is selected, you are dealt a hand of white cards with the titles of the songs from that playlist as the text.  Draw a random black card and choose a white card as your answer to that question. While browsing your white cards a Spotify Player pops up for you to listen to that song and from there share that song on social media or open that song on your personal Spotify App.  Full gameplay with others is coming down the road!
+
+## Demo
+
+[![App Demo](https://i.imgur.com/HyPMivh.jpg)](https://youtu.be/2qtFACBkfLo "Welcome to Cards Against Humanity!")
 
 
 ## Technologies
